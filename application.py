@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,Response
 import json
 from flask import request, jsonify
 app = Flask(__name__)
@@ -22,14 +22,10 @@ def resources():
 app.add_url_rule('/ufmRest/resources/systems', 'resources', resources,'GET')
 
 def start():
-    return """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
-
-<title>Redirecting...</title>
-
-<h1>Redirecting...</h1>
-
-<p>You should be redirected automatically to target URL: <a href="/ufmRest/monitoring/session/10618">/ufmRest/monitoring/session/10618</a>.  If not click the link. """
-app.add_url_rule('/ufmRest/monitoring/start', 'start', start, 'POST')
+    response = Response()
+    response.headers["Location"] = "https://supercomputermockserviceexample1.azurewebsites.net/ufmRest/monitoring/session/1000"
+    return response
+add_url_rule('/ufmRest/monitoring/start', 'start', start, 'POST')
 
 def data():
     sessionFile = open('./session.txt','w')
