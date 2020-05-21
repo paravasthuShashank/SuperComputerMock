@@ -5,4 +5,4 @@ app = Flask(__name__)
 def hello():
     return "Hello govind!"
 
-app.run(ssl_context = 'adhoc')
+app.run()
