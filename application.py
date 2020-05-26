@@ -25,7 +25,7 @@ def start():
     response = Response()
     response.headers["Location"] = "https://supercomputermockserviceexample1.azurewebsites.net/ufmRest/monitoring/session/1000"
     return response
-app.add_url_rule('/ufmRest/monitoring/start', 'start', start, 'POST')
+app.add_url_rule('/ufmRest/monitoring/start', 'start', start, methods = ['POST','GET'])
 
 def data():
     sessionFile = open('./session.txt','w')
